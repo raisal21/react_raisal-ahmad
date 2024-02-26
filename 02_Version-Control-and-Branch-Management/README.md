@@ -1,5 +1,7 @@
 ## Ringkasan Materi "Version Control and Branch Management (Git)"
 
+**Tautan Soal#1 Git&Github:** https://docs.google.com/document/d/1QppEYom715MZ6fGv3QaBNra2dnoZNmlgsdgxXtpMwIA/edit?usp=drive_link
+
 **1. Pengantar**
 
 * Version control: Melacak perubahan file dan kode.
