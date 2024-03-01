@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Product Page</title>
+
+    <style>
+        @media screen and (max-width: 387px){
+            #product-description {
+                width: 100% !important;
+                margin-right: 10px;
+            }
+        }
+    </style>
  </head>
 <body>
     <div class="container"> <h1>Create Product</h1>
         <form action="/submit-product" method="post"> <h2>Detail Product</h2>
 
             <div class="product-details">
-                <label for="product-name">Product Name:</label>
+                <label for="product-name">Product Name:</label><br>
                 <input type="text" id="product-name" name="product_name" required><br>
 
-                <label for="product-category" style="line-height: 1.75;">Product Category:</label>
+                <label for="product-category" style="line-height: 1.75;">Product Category:</label><br>
                 <select id="product-category" name="product_category" required>
                     <option value=""> </option>
                     <option value="electronics">Electronics</option>
@@ -22,8 +31,8 @@
                     <option value="other">Other</option>
                 </select><br>
 
-                <label for="product-freshness">Product Freshness:</label>
-                <div class="radio-buttons">
+                <label for="product-freshness" style="line-height: 1.75;">Product Freshness:</label><br>
+                <div class="radio-buttons" style="line-height: 1.75;">
                     <input type="radio" id="freshness-brand-new" name="product_freshness" value="brand_new" required>
                     <label for="freshness-brand-new">Brand New</label>
                     <br>
@@ -37,14 +46,14 @@
                 <label for="product-image" style="line-height: 1.75;">Image of Product:</label>
                 <input type="file" id="product-image" name="product_image" accept="image/*"><br>
 
-                <br<<label for="product-description">Additional Description:</label><br>
-                <input type="text" id="product-description" name="product_description" style="width: 420px; height: 100px;">
+                <label for="product-description" style="line-height: 1.75;">Additional Description:</label><br>
+                <input type="text" id="product-description" name="product_description" style="width: 287px; height: 100px;">
             </div>
 
             <label for="product-freshness" style="line-height: 1.75;">Product price:</label>
             <div class="product-price">
                 <label for="product-price"style="line-height: 1.5;">Price:</label>
-                <input type="number" id="product-price" name="product_price" min="0" required> </div>
+                <input type="text" id="product-price" name="product_price" value="$100" required> </div>
 
             <button type="submit">Submit</button>
         </form>
