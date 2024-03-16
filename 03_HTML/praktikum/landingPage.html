@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href= "../../output.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <script>
+      function moveToCreateProduct() {
+         window.location.href = "./createProduct.html";
+       }
+   </script>
+</head>
+<style>
+  .header {
+    font-family: 'Roboto', sans-serif;
+    width: 1440px;
+    height: 45px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-bottom: 1.5px solid black;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.3199999928474426px;
+    text-align: left;
+  }
+
+  .title {
+    margin-left: 70px; 
+    font-family: 'Times New Roman'; 
+    font-size: 48px; 
+    font-weight: 700; 
+    line-height: 56px;
+  }
+
+  .heading {
+    margin-left: 70px; 
+    font-family: 'Times New Roman'; 
+    font-size: 24px; 
+    font-weight: 400; 
+    line-height: 29px;
+    color: #00000099;
+  }
+
+  .button {
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .margin-left {
+    margin-left: 70px;
+  }
+
+  img {
+    width: 636px;
+    height: 527px;
+    top: 429px;
+    left: 57px;
+  }
+
+  form {
+    width: 503px;
+    height: 31px;
+    top: 1154px;
+    left: 92px;
+    border: 1.5px solid black; 
+  }
+</style>
+
+<header class="header">
+  <p><strong>Simple header</strong></p>
+</header>
+
+<body>
+<br><br>
+<div>
+  <h1 class="title">Better Solutions For Your <br>Business</h1>
+  <p class="heading">We are team of talented designers making websites with <br>Bootstrap</p>
+</div>
+
+<br><div>
+  <button class="button margin-left" style="border: 1.5px solid black;" onclick="moveToCreateProduct()">Get Started</button>
+  <button class="button" style="margin-left: 25px;">Watch Video</button>
+</div>
+
+<div style="margin-left: 25px;">
+  <img src="assets/Tech.png">
+</div>
+
+<br>
+<div class="margin-left">
+  <p style="font-family: Times New Roman; font-size: 24px; font-weight: 700; line-height: 44px;">
+    <strong>Join Our Newsletter</strong>
+  </p>
+  <p style="font-family: Times New Roman; font-size: 15px; font-weight: 400; line-height: 23px; margin-bottom: 10px;">Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+  <form action="submit email">
+    <input type="text" required><br>
+  </form>
+  <br><button class="button" style="border: 1.5px solid black;" onclick="moveToCreateProduct()">Get Started</button>
+</div><br>
+</body>
+
+<footer style="border-top: 1px solid black;">
+  <p style="line-height: 3; font-size: 14px; font-family: 'Times New Roman'; margin-left: 70px;">
+    &copy; Copyright <strong>Arsha.</strong> All Rights Reserved</p>
+  <p style="font-size: 13px; font-family: 'Times New Roman'; margin-left: 70px;">Designed by BootstrapMade</p>
+</footer><br>
+</html>

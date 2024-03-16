@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Product Page</title>
-
     <style>
         @media screen and (max-width: 387px){
             #product-description {
@@ -20,7 +19,7 @@
 
             <div class="product-details">
                 <label for="product-name">Product Name:</label><br>
-                <input type="text" id="product-name" name="product_name" required><br>
+                <input type="text" id="product-name" name="product_name" pattern=".{6,50}" required><br>
 
                 <label for="product-category" style="line-height: 1.75;">Product Category:</label><br>
                 <select id="product-category" name="product_category" required>
@@ -44,16 +43,16 @@
                 </div>
 
                 <label for="product-image" style="line-height: 1.75;">Image of Product:</label>
-                <input type="file" id="product-image" name="product_image" accept="image/*"><br>
+                <input type="file" id="product-image" name="product_image" accept="image/*" required><br>
 
                 <label for="product-description" style="line-height: 1.75;">Additional Description:</label><br>
-                <input type="text" id="product-description" name="product_description" style="width: 287px; height: 100px;">
+                <input type="text" id="product-description" name="product_description" style="width: 287px; height: 100px;" required>
             </div>
 
             <label for="product-freshness" style="line-height: 1.75;">Product price:</label>
             <div class="product-price">
                 <label for="product-price"style="line-height: 1.5;">Price:</label>
-                <input type="text" id="product-price" name="product_price" value="$100" required> </div>
+                <input type="text" id="product-price" name="product_price" pattern="\d+" value="$100" required> </div>
 
             <button type="submit">Submit</button>
         </form>
