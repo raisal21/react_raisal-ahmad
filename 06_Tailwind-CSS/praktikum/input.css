@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header {
+    @apply shadow-md
+}
+.simple-header {
+    @apply font-roboto text-4xl font-medium leading-7 tracking-tighter text-left text-gray-800 no-underline;
+}
+
+.nav {
+    @apply flex flex-wrap pl-0 mb-0 list-none;
+   }
+   
+.nav-link {
+    @apply block p-2 text-base font-normal text-gray-700 no-underline transition-colors duration-150 ease-in-out;
+   }
+   
+   @media (prefers-reduced-motion: reduce) {
+    .nav-link {
+       @apply transition-none;
+    }
+   }
+   
+   .nav-link:hover, .nav-link:focus {
+    @apply text-gray-900; /* Assuming hover color is darker, adjust as needed */
+   }
+   
+   .nav-link.disabled {
+    @apply text-gray-500 cursor-default pointer-events-none;
+   }
+
+   .nav-link.active {
+    @apply text-white bg-blue-600 rounded-lg; /* Assuming --bs-nav-pills-link-active-color: #fff; and --bs-nav-pills-link-active-bg: #0d6efd; translates to text-white and bg-blue-600 in Tailwind */
+   }
+
+.nav-pills {
+    @apply rounded-md; /* Assuming --bs-nav-pills-border-radius: 0.375rem; translates to rounded-md in Tailwind */
+   }
+   
+   .nav-pills .nav-link {
+    @apply bg-transparent border-0 rounded-md;
+   }
+   
+   .nav-pills .nav-link:disabled {
+    @apply text-gray-500 bg-transparent border-transparent; /* Assuming --bs-nav-link-disabled-color: #6c757d; translates to text-gray-500 in Tailwind */
+   }
+   
+   .nav-pills .nav-link.active,
+   .nav-pills .show > .nav-link {
+    @apply text-white bg-blue-600; /* Assuming --bs-nav-pills-link-active-color: #fff; and --bs-nav-pills-link-active-bg: #0d6efd; translates to text-white and bg-blue-600 in Tailwind */
+   }
+   
+.tailwind-icon {
+    width: 72px;
+    height: 57px;
+   }
+   
+   .create-product {
+    @apply text-4xl font-semibold text-center text-gray-900;
+    /* Adjust font family and line height as needed */
+   }
+   
+   .text-create-product {
+    @apply text-lg font-light text-center text-gray-900;
+    /* Adjust font family as needed */
+   }
+
+
+h2 {
+    @apply font-roboto text-xl font-medium text-left;
+}
+
+input[type="file"]::file-selector-button {
+    @apply font-bold text-white w-24 h-9;
+   }
+   
+   
+   
