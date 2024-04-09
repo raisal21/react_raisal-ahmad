@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-grid.rtl.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-utilities.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -72,6 +68,14 @@
           border-radius: 4px 0px 0px 0px;
           border: 1px 0px 0px 0px;
         }
+        
+        #error-message {
+          font-size: small;
+          color:red; 
+          display:none;
+          width: auto !important;
+        }
+       
 
         input[type="file"]::file-selector-button {
           font-weight: bold;
@@ -88,50 +92,76 @@
         #button-submit {
           width: 564px;
         }
-        
     </style>
     <title>Landing Pages</title>
 </head>
 <body>
-    <div>
-        <header class="row justify-content-between px-4 pt-3 pb-2 border-bottom">
-            <a href="/" class="col-auto mr-auto simple-header text-decoration-none">
-                <span>
-                  Simple Header
-                </span>
+    <header class="row justify-content-between px-4 pt-3 pb-2 mb-4 border-bottom">
+      <a href="/" class="col-auto mr-auto simple-header text-decoration-none">
+          <span>
+            Simple Header
+          </span>
+      </a>
+      
+      <ul class="col-auto nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">
+              Home
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              Features
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              Pricing
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              FAQs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              About
+            </a>
+          </li>
+      </ul>
+    </header>
 
-            <ul class="col-auto nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-            </ul>
-        </header>
-    </div>
-    <br>
-    <div class="col-md-12 text-center">
+    <section class="col-md-12 text-center mb-4">
         <img class="bootstrap-icon" src="./assets/img/bootstrap-logo-shadow.png" alt="Bootstrap 5 Icon">
-        <h1 class="create-product mt-3">Create Product</h1>
-        <p class="col-md-8 offset-md-2 text-create-product">Below is an example form built entirely with Bootstrap’s form controls. 
-          Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.
+        <h1 class="create-product mt-3">
+          Create Product
+        </h1>
+        <p class="col-md-8 offset-md-2 text-create-product">
+          Below is an example form built entirely with Bootstrap’s form controls. 
+          Each required form group has a validation state that can be triggered 
+          by attempting to submit the form without completing it.
         </p>
-    </div>
-    <br>
-    <form class="col-md-6 offset-md-3" action="#" method="post"> 
-        <h2>Detail Product</h2>
-        <div data-mdb-input-init class="product form-outline mb-4 mt-4">
-          <label class="form-label" for="form6Example3">Product Name</label>
-          <input type="text" id="form6Example3" class="form-control" required /> 
-          <div class="valid-feedback">
-              Looks good!
-          </div>
-        </div>
-        <br>
-        <div class="product mt-2">
-          <label for="country" class="form-label">Product Category</label>
-          <select class="form-select" id="category" required="">
+    </section>
+
+    <form class="col-md-6 offset-md-3" action="#" method="post id="form-create-product" name="form-create-product" onsubmit="return validateForm()"> 
+        <h2 class="mb-4">
+          Detail Product
+        </h2>
+
+        <div class="product mb-5" name>
+          <label class="form-label" for="product-name">
+            Product Name
+          </label>
+          <input type="text" id="product-name" name="product-name" class="form-control"/>
+        </div><br>
+
+
+        <div class="product mb-5">
+          <label for="category" class="form-label">
+            Product Category
+          </label>
+          <select class="form-select" id="category" name="category">
             <option value="">Choose...</option>
             <option value="Electronics">Electronics</option>
             <option value="Clothing">Clothing</option>
@@ -141,50 +171,138 @@
           <div class="invalid-feedback">
             Please select a valid category.
           </div>
-        </div>
-        <br><br>
-        <div class="product mb-3 mt-2">
-          <label for="formFile" class="form-label">Image of Product</label>
-          <input class="form-control" type="file" id="formFile" accept="image/png, image/jpeg";
-          >
-        </div>
-        <br>
-        <div class="mt-3">
-          <label for="country" class="form-label">Product Freshness</label>
+        </div><br>
+
+        <div class="mb-5">
+          <label for="country" class="form-label">
+             Product Freshness
+          </label>
+         
           <div class="form-check-invalid">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Brand New" required>
-            <label class="form-check-label" for="Brand New">
-              Brand New
-            </label>
+             <input class="form-check-input" type="radio" name="product-freshness" id="Brand New">
+             <label class="form-check-label" for="Brand New">
+               Brand New
+             </label>
           </div>
+         
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-            <label class="form-check-label" for="Second Hand">
-              Second Hand
-            </label>
+             <input class="form-check-input" type="radio" name="product-freshness" id="second-hand">
+             <label class="form-check-label" for="second-hand">
+               Second Hand
+             </label>
           </div>
+         
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-            <label class="form-check-label" for="flexRadioDefault3">
-              Refurbished
-            </label>
+             <input class="form-check-input" type="radio" name="product-freshness" id="refurbished">
+             <label class="form-check-label" for="refurbished">
+               Refurbished
+             </label>
           </div>
+         </div>         
+
+        <div class="mb-5">
+          <label class="form-label" for="product-description">
+            Additional Description:
+          </label>
+          <textarea class="form-control" id="product-description" name="product_description"></textarea>
         </div>
-        <br>
-        <div>
-          <label class="form-label" for="product-description">Additional Description:</label>
-          <textarea class="form-control" id="product-description" name="product_description" required></textarea>
-        </div>
-        <br>
-        <div>
+
+        <div class="mb-5">
           <label class="form-label" for="product-price">Product Price</label>
-          <input class="form-control" type="text" id="product-price" name="product_price" placeholder="$ 1" required> 
-          <div class="invalid-feedback">Please enter a valid product price (numbers only).</div>
+          <input class="form-control" type="text" id="product-price" name="product-price" placeholder="$ 1"> 
+          <div class="invalid-feedback">
+            Please enter a valid product price (numbers only).
+          </div>
         </div>
-        <br>
+
         <div>
-          <input class="btn btn-primary" type="submit" id="button-submit" value="Submit">
+          <input class="btn btn-primary" type="submit" id="button-submit" value="Submit" name="submit">
         </div>
     </form>
 </body>
+<script>
+  const form = document.querySelector('form'); // Select the form element
+ 
+  const errorMessage = document.createElement('div');
+  errorMessage.id = 'error-message';
+  errorMessage.style.color = 'red';
+  errorMessage.style.display = 'none'; // Sembunyikan elemen awalnya
+ 
+  // Menambahkan elemen ke DOM, tepat di bawah elemen input
+  document.getElementById('product-name').parentNode.appendChild(errorMessage);
+ 
+  document.getElementById('product-name').addEventListener('input', () => {
+      const name = document.getElementById('product-name');
+      const errorMessage = document.getElementById('error-message');
+      if (name.value.length > 25) {
+        name.style.borderColor = 'red';
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = "Product name mustn't exceed 25 characters.";
+      } 
+      else if (name.value.length < 4) {
+        name.style.borderColor = 'red';
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = "Product name mustn't be less than 4 character.";
+      }
+      else if (/[@/#{}]/.test(name.value)) {
+        name.style.borderColor = 'red';
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = "Product name must not contain symbols";
+      } 
+      else {
+        name.style.borderColor = '';
+        errorMessage.style.display = 'none';
+      }
+  });
+
+  document.getElementById('product-price').addEventListener('input', () => {
+    const priceInput = document.getElementById('product-price');
+    const errorMessage = document.getElementById('error-message');
+
+    // Clear any previous error styles/messages (optional)
+    priceInput.style.borderColor = '';
+    errorMessage.style.display = 'none';
+    errorMessage.textContent = ''; // Set to empty string initially
+
+    const priceValue = priceInput.value;
+
+    // Validate if the price value is empty or contains non-numeric characters
+    if (!priceValue || isNaN(Number(priceValue))) {
+      priceInput.style.borderColor = 'red';
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = "Price must be a valid number.";
+    } else {
+      // Price is valid, remove any error styles/messages
+      priceInput.style.borderColor = '';
+      errorMessage.style.display = 'none';
+      errorMessage.textContent = ''; // Keep empty here (optional)
+    }
+  });
+
+  function validateForm() {
+    let productName = document.forms["form-create-product"]["product-name"].value;
+    let category = document.forms["form-create-product"]["category"].value;
+    let freshnessOptions = document.getElementsByName("product-freshness");
+    let description = document.forms["form-create-product"]["product-description"].value;
+    let price = document.forms["form-create-product"]["product-price"].value;
+
+    if (productName == "" || category == "" || description == "" || price == "") {
+      alert("Please fill out all required fields");
+      return false;
+    }
+
+    let freshnessSelected = false;
+    for (let i = 0; i < freshnessOptions.length; i++) {
+      if (freshnessOptions[i].checked) {
+        freshnessSelected = true;
+        break;
+      }
+    }
+    if (!freshnessSelected) {
+      alert("Please fill out all required fields");
+      return false;
+    }
+    return true; // Form is valid
+  }
+  </script>
 </html>
