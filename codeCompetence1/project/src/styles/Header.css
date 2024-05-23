@@ -1,0 +1,10 @@
+.link {
+    background-color:#1D232A !important;
+    color: inherit;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline !important;
+}
