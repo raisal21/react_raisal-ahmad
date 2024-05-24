@@ -1,5 +1,3 @@
-Tentu, mari kita rangkum materi Clean Code dalam konteks React dengan format Markdown (.md) dan bahasa Indonesia:
-
 ## Clean Code dalam Pengembangan React
 
 ### 1. Apa itu "Clean Code"?
