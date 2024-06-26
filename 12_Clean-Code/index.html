@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/Admin.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./src/styles/output.css" rel="stylesheet">
+    <title>Create Product</title>
+</head>
+<body class="font-roboto bg-white">
+    <header class="navbar md:h-[60px] p-2 shadow">
+        <div class="lg:navbar-start">
+            <div class="dropdown block lg:hidden">
+                <div role="button" aria-label="sm-menu" tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box">
+                    <li><a href="#" class="btn btn-primary w-full">Home</a></li>
+                    <li><a href="#" class="btn btn-ghost">Features</a></li>
+                    <li><a href="#" class="btn btn-ghost">Pricing</a></li>
+                    <li><a href="#" class="btn btn-ghost">FAQs</a></li>
+                    <li><a href="#" class="btn btn-ghost">About</a></li>
+                </ul>
+            </div>
+            <a href="#" class="btn btn-ghost sm:text-lg md:text-2xl font-semibold text-[#212529]">
+                Simple Header
+            </a>
+        </div>
+        <div class="navbar-end">
+            <nav class="gap-2 text-base sm:hidden lg:block" id="lg-menu">
+                <a href="#" class="btn btn-primary">Home</a>
+                <a href="#" class="btn btn-ghost">Features</a>
+                <a href="#" class="btn btn-ghost">Pricing</a>
+                <a href="#" class="btn btn-ghost">FAQs</a>
+                <a href="#" class="btn btn-ghost">About</a>
+            </nav>
+        </div>
+
+    </header>
+    <main>
+        <section class="mx-auto lg:w-[936px]">
+            <div class="flex flex-col items-center text-center text-[#212529] space-y-2">
+                <img class="sm:w-[72px]" src="./assets/icons/Tailwind.svg" alt="Tailwind Logo">
+                <h1 class="sm:text-xl  md:text-3xl font-semibold leading-[38px]">Create Product</h1>
+                <p class="sm:text-[10px] lg:text-xl lg:leading-[30px] font-thin sm:w-72 md:w-96 lg:w-full">
+                    This form is built entirely with Tailwind CSS's utility classes, providing a flexible and customizable design. Each required input has validation states that are triggered when you try to submit the form without filling it out completely.
+                </p>
+            </div>
+
+            <form class="lg:mx-[140px] sm:px-2 lg:px-6 sm:py-3 lg:py-12 grid grid-cols-1 gap-7" >
+                <div class="inline-flex items-center gap-2">
+                    <h2 class="font-semibold md:text-2xl text-[#212529]">Detail Product</h2>
+                    <div>
+                        <button type="button" class="btn btn-xs btn-circle bg-white border-2 border-[#00ACC1]" onclick="modal_detail.showModal()">
+                            <img src="./assets/icons/Info(2).svg" alt="Info" class="w-3">
+                        </button>
+                        <dialog id="modal_detail" class="modal modal-bottom lg:modal-middle">
+                          <div class="modal-box bg-[#00ACC1] text-white ">
+                            <h3 class="font-bold text-2xl">About Detail Product</h3>
+                            <p class="py-4">This section is for entering detailed information about the product you want to create. Fill out each field carefully to ensure accuracy and completeness of your product listing. <br/><br/> Press ESC key to close!</p>
+                          </div>
+                        </dialog>
+                    </div>
+                </div>
+
+                <div class="grid grid-rows-2  text-[#212529]">
+                    <label for="name" class="sm:text-xs lg:text-base font-normal">Product Name</label>
+                    <input id="name" name="product_name" type="text" class="input input-bordered sm:input-sm md:input-md" />
+                </div>
+
+                <div class="grid grid-rows-2 text-[#212529]">
+                    <label for="category" class="sm:text-xs lg:text-base font-normal">Product Category</label>
+                    <select id="category" name="product-category" class="select select-bordered w-full sm:select-sm md:select-md sm:text-[10px] lg:text-base">
+                        <option disabled selected>Choose</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Home">Home</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-rows-2 text-[#212529]">
+                    <label for="image" class="sm:text-xs lg:text-base font-normal">Image of Product</label>
+                    <input id="image" name="product_image" type="file" class="file-input sm:file-input-sm lg:file-input-md" />
+                </div>
+
+                <fieldset class="grid grid-rows-2  text-[#212529]">
+                    <legend class="sm:text-xs lg:text-base font-normal">Product Freshness</legend>
+
+                    <div class="flex">
+                        <label for="new" class="label cursor-pointer space-x-2">
+                          <input id="new" type="radio" name="product_freshness" class="radio sm:radio-xs lg:radio-md" checked />
+                          <span class="label-text sm:text-xs lg:text-base">Brand New</span> 
+                        </label>
+                    </div>
+                    <div class="flex">
+                        <label for="second" class="label cursor-pointer space-x-2">
+                          <input id="second" type="radio" name="product_freshness" class="radio sm:radio-xs lg:radio-md" checked />
+                          <span class="label-text sm:text-xs lg:text-base">Second Hand</span> 
+                        </label>
+                    </div>
+                    <div class="flex">
+                        <label for="refurbished"" class="label cursor-pointer space-x-2">
+                          <input id="refurbished" type="radio" name="product_freshness" class="radio sm:radio-xs lg:radio-md" checked />
+                          <span class="label-text sm:text-xs lg:text-base">Refurbished</span> 
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="grid text-[#212529] space-y-6">
+                    <label for="desc" class="sm:text-xs lg:text-base font-normal">Additional Description</label>
+                    <textarea id="desc" name="additional_description" class="textarea sm:textarea-sm md:textarea-md"></textarea>
+                </div>
+
+                <div class="grid grid-rows-2 text-[#212529]">
+                    <label for="price" class="text-base font-normal">Product Price</label>
+                    <div class="flex items-center input gap-2 sm:input-sm md:input-md">
+                        <span>$ 1</span>
+                        <input id="price" name="product_price" type="text" class="grow border-none focus:ring-0" />                       
+                    </div>
+                </div>
+
+                <div id="alert-container" class="alert alert-error hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span id="alert-message"></span>
+                </div>
+
+                <div class="lg:px-10 lg:mt-16">
+                    <button type="submit" class="btn btn-primary w-full lg:text-xl lg:tooltip" data-tip="Pastikan data yang di input benar!">
+                        Submit
+                    </button>                
+                </div>
+            </form>
+        </section>
+        <div class="divider"></div> 
+        <section class="mx-auto grid grid-row-3 md:justify-center text-[#212529] sm:space-y-4 md:space-y-8 sm:px-2 md:px-6">
+            <div class="flex flex-col items-center text-center text-[#212529] space-y-2 ">                
+                <img class="sm:w-[72px]" src="./assets/icons/Tailwind.svg" alt="Tailwind Logo">
+                <h1 class="sm:text-xl  md:text-3xl lg:text-3xl font-semibold lg:leading-[38px]">List Product</h1>
+                <p class="sm:text-[10px] lg:text-xl lg:leading-[30px] font-thin sm:w-72  md:w-96 lg:w-full text-center lg:px-[220px]">
+                    This table dynamically displays the product data you submit through the form above. It's built with Tailwind CSS for a clean, responsive, and easily customizable layout.                
+                </p>
+            </div>
+
+            <div class="flex md:justify-between md:flex-row sm:flex-col sm:space-y-2 md:space-x-0">
+                <div class="flex sm:justify-between md:justify-start md:space-x-2">
+                    <button id="add-new" class="btn bg-green-500 border-none text-white md:text-base sm:btn-sm lg:btn-md">
+                        <img src="./assets/icons/Add.svg" alt="Add" class="w-6">
+                        Add New
+                    </button>
+                    <button id="delete-latest" class="btn bg-red-500 border-none text-white md:text-base sm:btn-sm lg:btn-md">
+                        <img src="./assets/icons/Delete.svg" alt="Delete" class="w-6">
+                        Delete Latest
+                    </button>
+                </div>
+
+                <div class="flex items-center input sm:input-sm lg:input-md gap-2 max-w-xs ">
+                    <img src="./assets/icons/Search.svg" alt="Seacrh">
+                    <input id="search" placeholder="Search" type="text" class="grow border-none focus:ring-0" />                       
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="table sm:table-xs lg:table-lg" id="table">
+                    <thead class="border-t-2 border-b-4 lg:text-lg text-bold text-black">
+                      <tr>
+                        <th>Action</th>
+                        <th>No</th>
+                        <th>Product Name</th>
+                        <th>Product Category</th>
+                        <th>Product Freshness</th>
+                        <th>Additional Description</th>
+                        <th>Product Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </section>
+        <br/>
+        <br/>
+    </main>
+
+    <script src="./src/js/main.js"></script>
+</body>
+</html>
