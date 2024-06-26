@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+      @apply bg-[#00ACC1] text-white border-none w-[74px] rounded-md
+  }
+
+  .btn-ghost {
+      @apply bg-transparent text-[#00ACC1]
+  }
+
+  .input {
+      @apply bg-white w-full border-[#CED4DA]
+  }
+
+  .select {
+      @apply bg-white w-full border-[#CED4DA]
+  }
+
+
+  .file-input {
+      @apply bg-white border-[#00ACC1] text-[#00ACC1]
+  }
+
+  .file-input::file-selector-button {
+      @apply bg-[#00ACC1] border-[#00ACC1] text-white
+  }
+
+  .radio {
+      @apply checked:bg-[#00ACC1] checked:shadow-none 
+  }
+
+  .label-text {
+      @apply text-[#212529] text-base
+  }
+
+  .textarea {
+      @apply bg-white w-full border-[#CED4DA] lg:h-[116px] resize-none
+  }
+}
