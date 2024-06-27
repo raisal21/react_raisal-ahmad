@@ -2,19 +2,24 @@
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import TailwindLogo from '../../assets/icons/Tailwind.svg';
 import AddNew from '../button/AddNewB';
 import DelLatest from '../button/DeleteLatestB';
 import DelRow from '../button/DeleteRowB';
 import EditRow from '../button/EditRowB';
+import SaveRow from '../button/SaveRowB';
 import Search from '../../assets/icons/Search.svg';
+import { updateProduct } from '../../store/productSlice'; // Tambahkan impor action updateProduct
 
 export default function TableList({ openDeleteModal }) {
   const products = useSelector((state) => state.product.products);
   const [searchTerm, setSearchTerm] = useState('');
   const [productsWithUUID, setProductsWithUUID] = useState([]);
+  const [editProductId, setEditProductId] = useState(null); // State untuk menyimpan ID produk yang sedang diedit
+  const [editValues, setEditValues] = useState({}); // State untuk menyimpan nilai yang sedang diedit
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -34,6 +39,24 @@ export default function TableList({ openDeleteModal }) {
 
   const handleRowClick = (id) => {
     navigate(`/products/${id}`);
+  };
+
+  const handleEditClick = (product) => {
+    setEditProductId(product.id);
+    setEditValues(product);
+  };
+
+  const handleSaveClick = () => {
+    dispatch(updateProduct(editValues));
+    setEditProductId(null);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditValues({
+      ...editValues,
+      [name]: value,
+    });
   };
 
   return (
@@ -83,20 +106,84 @@ export default function TableList({ openDeleteModal }) {
           </thead>
           <tbody>
             {filteredProducts.map((product, index) => (
-              <tr key={product.id} onClick={() => handleRowClick(product.id)}>
+              <tr key={product.id} >
                 <td className='flex gap-1'>
-                  <EditRow />
+                  {editProductId === product.id ? (
+                    <SaveRow onClick={(e) => { e.stopPropagation(); handleSaveClick(); }} />
+                  ) : (
+                    <EditRow onClick={(e) => { e.stopPropagation(); handleEditClick(product); }} />
+                  )}
                   <DelRow onClick={(e) => { e.stopPropagation(); openDeleteModal(product, 'row'); }} />
                 </td>
-                <td>{index + 1001}</td>
-                <td>{product.name}</td>
-                <td>{product.category}</td>
+                <td onClick={() => handleRowClick(product.id)}>{index + 1001}</td>
+                <td>
+                  {editProductId === product.id ? (
+                    <input
+                      type="text"
+                      name="name"
+                      value={editValues.name}
+                      onChange={handleInputChange}
+                      className="border p-1"
+                    />
+                  ) : (
+                    product.name
+                  )}
+                </td>
+                <td>
+                  {editProductId === product.id ? (
+                    <input
+                      type="text"
+                      name="category"
+                      value={editValues.category}
+                      onChange={handleInputChange}
+                      className="border p-1"
+                    />
+                  ) : (
+                    product.category
+                  )}
+                </td>
                 <td>
                   <img src={URL.createObjectURL(product.image)} alt={product.name} className="w-20" />
                 </td>
-                <td>{product.freshness}</td>
-                <td>{product.desc}</td>
-                <td>{product.price}</td>
+                <td>
+                  {editProductId === product.id ? (
+                    <input
+                      type="text"
+                      name="freshness"
+                      value={editValues.freshness}
+                      onChange={handleInputChange}
+                      className="border p-1"
+                    />
+                  ) : (
+                    product.freshness
+                  )}
+                </td>
+                <td>
+                  {editProductId === product.id ? (
+                    <input
+                      type="text"
+                      name="desc"
+                      value={editValues.desc}
+                      onChange={handleInputChange}
+                      className="border p-1"
+                    />
+                  ) : (
+                    product.desc
+                  )}
+                </td>
+                <td>
+                  {editProductId === product.id ? (
+                    <input
+                      type="number"
+                      name="price"
+                      value={editValues.price}
+                      onChange={handleInputChange}
+                      className="border p-1"
+                    />
+                  ) : (
+                    product.price
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
