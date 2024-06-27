@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CreateForm from '../components/createProduct/CreateForm';
 import TableList from '../components/createProduct/TableList';
 import DeleteConfirm from '../components/modal/DeleteConfirm';
-import { useProduct } from '../context/UseProduct';
+import { useProduct } from '../hooks/UseProduct';
 import { Outlet } from 'react-router-dom';
 
 export default function CreateProduct() {
